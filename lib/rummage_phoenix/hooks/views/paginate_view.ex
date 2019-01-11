@@ -148,7 +148,7 @@ defmodule Rummage.Phoenix.PaginateView do
       defp raw_disabled_link(name) do
         """
         <li class="inline">
-          <a class="relative float-left sm:py-2 sm:px-4 sm:text-base xs:py-1 xs:px-2 xs:text-xs no-underline leading-normal text-grey-dark bg-white border border-grey -ml-px cursor-not-allowed" href="#" tabindex="-1">#{
+          <a class="relative float-left py-2 px-4 no-underline leading-normal text-grey-dark bg-white border border-grey -ml-px cursor-not-allowed" href="#" tabindex="-1">#{
           name
         }</a>
         </li>
@@ -158,7 +158,7 @@ defmodule Rummage.Phoenix.PaginateView do
       defp raw_link(name, url) do
         """
         <li class="inline">
-          <a class="relative float-left sm:py-2 sm:px-4 sm:text-base xs:py-1 xs:px-2 xs:text-xs no-underline leading-normal text-grey-darkest bg-white border border-grey -ml-px hover:z-20 hover:bg-grey-light hover:bg-grey" href="#{
+          <a class="relative float-left py-2 px-4 no-underline leading-normal text-grey-darkest bg-white border border-grey -ml-px hover:z-20 hover:bg-grey-light hover:bg-grey" href="#{
           url
         }">#{name}</a>
         </li>
@@ -168,7 +168,7 @@ defmodule Rummage.Phoenix.PaginateView do
       defp raw_active_link(name) do
         """
         <li class="inline">
-          <a class="relative float-left sm:py-2 sm:px-4 sm:text-base xs:py-1 xs:px-2 xs:text-xs leading-normal no-underline text-grey-lighter bg-grey-darkest border border-grey-darkest -ml-px z-30" href="#">#{
+          <a class="relative float-left py-2 px-4 leading-normal no-underline text-grey-lighter bg-grey-darkest border border-grey-darkest -ml-px z-30" href="#">#{
           name
         } <span class="absolute w-px h-px overflow-hidden">(current)</span></a>
         </li>
