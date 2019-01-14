@@ -10,14 +10,14 @@ defmodule Rummage.Phoenix.Mixfile do
       version: @version,
       elixir: "~> 1.3",
       deps: deps(),
-      build_embedded: Mix.env == :prod,
-      start_permanent: Mix.env == :prod,
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
 
       # Test
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [coveralls: :test],
       aliases: aliases(),
-      elixirc_paths: elixirc_paths(Mix.env),
+      elixirc_paths: elixirc_paths(Mix.env()),
 
       # Hex
       description: description(),
@@ -25,26 +25,26 @@ defmodule Rummage.Phoenix.Mixfile do
 
       # Docs
       name: "Rumamge.Phoenix",
-      docs: docs(),
+      docs: docs()
     ]
   end
 
   def application do
     [
       applications: [
-        :logger,
-      ],
+        :logger
+      ]
     ]
   end
 
   def package do
-  [
-    files: ["lib", "mix.exs",  "README.md"],
-    maintainers: ["Adi Iyengar"],
-    licenses: ["MIT"],
-    links: %{"Github" => @url},
-  ]
-end
+    [
+      files: ["lib", "mix.exs", "README.md"],
+      maintainers: ["Adi Iyengar"],
+      licenses: ["MIT"],
+      links: %{"Github" => @url}
+    ]
+  end
 
   defp deps do
     [
@@ -54,7 +54,7 @@ end
       {:inch_ex, "~> 0.5", only: [:dev, :test, :docs]},
       {:phoenix, "~> 1.2.1"},
       {:postgrex, ">= 0.0.0", only: [:test]},
-      {:rummage_ecto, "~> 1.0.0"},
+      {:rummage_ecto, "~> 1.0.0"}
     ]
   end
 
@@ -80,19 +80,19 @@ end
         "ecto.create",
         "ecto.migrate"
       ],
-     "ecto.reset": [
+      "ecto.reset": [
         "ecto.drop",
         "ecto.setup"
       ],
-     "test": [
+      test: [
         # "ecto.drop",
         "ecto.create --quiet",
         "ecto.migrate",
         "test"
-      ],
+      ]
     ]
   end
 
   defp elixirc_paths(:test), do: ["lib", "priv", "test/support"]
-  defp elixirc_paths(_),     do: ["lib"]
+  defp elixirc_paths(_), do: ["lib"]
 end
